@@ -170,13 +170,13 @@ async function SignInScreen(){
   if (passwordPrompt.length < 7){
     let tempPassword = getRndInteger(10000000, 99999999);
     passwordPrompt = "" + tempPassword
-      swal({
+      await swal({
         title: "Oh no!",
         text: "Your password must be more than 7 characters. Your new password is: \n" + passwordPrompt,
         icon: "error",
       })
   }
-  swal({
+  await swal({
     title: "Success!",
     icon: "success",
   })
@@ -196,6 +196,7 @@ function draw(){
  ctx.fillStyle = "black";
   ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
  ctx.fillText("This is where we will put our homepage.", window.innerWidth/2 - 150, window.innerHeight/2);
+ ctx.fillStyle = "#000080";
  for(var e = 0; e <= Math.round(window.innerWidth/120); e++){
   ctx.fillRect((e*100) + 20, 100, favorite, 100);
  }
