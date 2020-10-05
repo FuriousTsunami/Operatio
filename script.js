@@ -29,6 +29,7 @@ var signinwidth = 0;
 var usernamePrompt;
 var passwordPrompt;
 var favorite = 0;
+var settings = 0;
 //Functions
 function requirements(){
  scrollTo(10, 10);
@@ -69,14 +70,14 @@ function checkExploreClick(event){
   xCoordinate = event.clientX;
   yCoordinate = event.clientY;
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 130 && menu.width > 0 && yCoordinate <= 150){
-    console.log("Go to Explore");
   }
 }
 function checkSettingsClick(event){
   xCoordinate = event.clientX;
   yCoordinate = event.clientY;
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 180 && menu.width > 0 && yCoordinate <= 200){
-    console.log("Go to Settings");
+    settings = 100;
+    favorite = 0;
   } 
 }
 function checkHomeClick(event){
@@ -84,6 +85,7 @@ function checkHomeClick(event){
   yCoordinate = event.clientY;
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 230 && menu.width > 0 && yCoordinate <= 250){
     favorite = 0;
+    settings = 0;
   } 
 }
 CanvasRenderingContext2D.prototype.roundedRectangle = function(x, y, width, height, rounded) {
@@ -186,6 +188,7 @@ async function SignInScreen(){
 }
 function Favorite(){
   favorite = 90;
+  settings = 0;
 }
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
@@ -193,13 +196,28 @@ function getRndInteger(min, max) {
 //Draw
 function draw(){
  requirements();
+ localStorage.setItem("data", JSON.stringify(data));
+ data = JSON.parse(localStorage.getItem("data"));
  ctx.fillStyle = "black";
   ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
  ctx.fillText("This is where we will put our homepage.", window.innerWidth/2 - 150, window.innerHeight/2);
  ctx.fillStyle = "#000080";
+ ctx.fillStyle = "white";
+ ctx.fillRect(0,0,favorite*(window.innerWidth/90),window.innerHeight)
+ ctx.fillStyle = "#000080";
  for(var e = 0; e <= Math.round(window.innerWidth/120); e++){
+  var f = "" + (e + 1);
   ctx.fillRect((e*100) + 20, 100, favorite, 100);
+  ctx.fillStyle = "white";
+  ctx.fillText(f,(e*100) + 60,155);
+  ctx.fillStyle = "#000080";
  }
+ ctx.fillStyle = "white";
+ ctx.fillRect(0,0,window.innerWidth,settings*(window.innerHeight/100))
+ ctx.fillStyle = "#000080";
+ ctx.fillRect(20,100,settings * 4,50)
+ ctx.fillStyle = "white";
+ //ctx.fillText("Language : English",50,settings);
  ctx.fillStyle = "#000080";
  ctx.fillRect(menu.x, menu.y, menu.width, menu.height);
  ctx.fillStyle = "black"
