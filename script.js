@@ -193,6 +193,9 @@ function getRndInteger(min, max) {
 //Draw
 function draw(){
  requirements();
+ ctx.fillStyle = "black";
+  ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
+ ctx.fillText("This is where we will put our homepage.", window.innerWidth/2 - 150, window.innerHeight/2);
  for(var e = 0; e <= Math.round(window.innerWidth/120); e++){
   ctx.fillRect((e*100) + 20, 100, favorite, 100);
  }
