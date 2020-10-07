@@ -16,6 +16,9 @@ var data = {
   username: 0,
   password: 0,
 }
+var image1 = new Image();
+image1.src = "https://i.ibb.co/NLSF5RK/Screenshot-2020-10-07-at-2-48-50-PM.png";
+var image1X = -1000;
 var textX = -100;
 var color = "black";
 var loop = setInterval(draw, interval);
@@ -30,6 +33,8 @@ var usernamePrompt;
 var passwordPrompt;
 var favorite = 0;
 var settings = 0;
+var explore = 0;
+var page = "Home";
 //Functions
 function requirements(){
  scrollTo(10, 10);
@@ -39,6 +44,7 @@ function requirements(){
  pixelWidth = screen.width / window.innerWidth;
  pixelHeight = screen.height / window.innerHeight;
 }
+//Clicking Functions
 function checkMenu(event) {
  xCoordinate = event.clientX;
  yCoordinate = event.clientY;
@@ -63,14 +69,23 @@ function checkFavoritesClick(event){
   xCoordinate = event.clientX;
   yCoordinate = event.clientY;
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 80 && menu.width > 0 && yCoordinate <= 100){
-    Favorite();
+    explore = 0;
+    favorite = 90;
+    settings = 0;
+    page = "Favorites";
+    image1X = 20;
   }
 }
 function checkExploreClick(event){
   xCoordinate = event.clientX;
   yCoordinate = event.clientY;
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 130 && menu.width > 0 && yCoordinate <= 150){
-  }
+    settings = 0;
+    favorite = 0;
+    explore = 90;
+    page = "Explore";
+    image1X = -1000;
+   }
 }
 function checkSettingsClick(event){
   xCoordinate = event.clientX;
@@ -78,6 +93,9 @@ function checkSettingsClick(event){
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 180 && menu.width > 0 && yCoordinate <= 200){
     settings = 100;
     favorite = 0;
+    explore = 0;
+    page = "Settings";
+    image1X = -1000;
   } 
 }
 function checkHomeClick(event){
@@ -86,6 +104,17 @@ function checkHomeClick(event){
   if (xCoordinate >= 55 && xCoordinate <= 137.24609375 && yCoordinate >= 230 && menu.width > 0 && yCoordinate <= 250){
     favorite = 0;
     settings = 0;
+    explore = 0;
+    page = "Home";
+    image1X = -1000;
+  } 
+}
+function checkSignInClick(event){
+  xCoordinate = event.clientX; 
+  yCoordinate = event.clientY;
+  if (xCoordinate >= window.innerWidth - 120 && xCoordinate <= window.innerWidth - 20 && yCoordinate >= 20 && yCoordinate <= 60){ 
+    page = "Sign-In"
+    SignInScreen();
   } 
 }
 CanvasRenderingContext2D.prototype.roundedRectangle = function(x, y, width, height, rounded) {
@@ -125,13 +154,6 @@ function clamp(a, left, right){
   } else {
     return right;
   }
-}
-function checkSignInClick(event){
-  xCoordinate = event.clientX; 
-  yCoordinate = event.clientY;
-  if (xCoordinate >= window.innerWidth - 120 && xCoordinate <= window.innerWidth - 20 && yCoordinate >= 20 && yCoordinate <= 60){ 
-    SignInScreen();
-  } 
 }
 async function SignInScreen(){
   usernamePrompt = await swal("Please enter new username (Less than 9 characters and more than 3 characters):", {
@@ -185,6 +207,10 @@ async function SignInScreen(){
   data.password = passwordPrompt;
   console.log("Username: " + data.username);
   console.log("Password: " + data.password);
+  favorite = 0;
+  settings = 0;
+  explore = 0;
+  page = "Home";
 }
 function Favorite(){
   favorite = 90;
@@ -195,19 +221,32 @@ function getRndInteger(min, max) {
 }
 //Draw
 function draw(){
+ //Clear Screen
  requirements();
  localStorage.setItem("data", JSON.stringify(data));
  data = JSON.parse(localStorage.getItem("data"));
  ctx.fillStyle = "black";
-  ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
+ ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
  ctx.fillText("This is where we will put our homepage.", window.innerWidth/2 - 150, window.innerHeight/2);
  ctx.fillStyle = "#000080";
  ctx.fillStyle = "white";
  ctx.fillRect(0,0,favorite*(window.innerWidth/90),window.innerHeight)
  ctx.fillStyle = "#000080";
+ //Favorites
  for(var e = 0; e <= Math.round(window.innerWidth/120); e++){
   var f = "" + (e + 1);
   ctx.fillRect((e*100) + 20, 100, favorite, 100);
+  ctx.fillStyle = "white";
+  ctx.fillText(f,(e*100) + 60,155);
+  ctx.fillStyle = "#000080";
+ }
+ //Explore
+ ctx.fillStyle = "white";
+ ctx.fillRect(0,0,explore*(window.innerWidth/90),window.innerHeight)
+ ctx.fillStyle = "#000080";
+ for(var e = 0; e <= Math.round(window.innerWidth/120); e++){
+  var f = "" + (e + 1);
+  ctx.fillRect((e*100) + 20, 100,explore, 100);
   ctx.fillStyle = "white";
   ctx.fillText(f,(e*100) + 60,155);
   ctx.fillStyle = "#000080";
@@ -217,8 +256,9 @@ function draw(){
  ctx.fillStyle = "#000080";
  ctx.fillRect(20,100,settings * 4,50)
  ctx.fillStyle = "white";
- //ctx.fillText("Language : English",50,settings);
+ ctx.fillText("Language : English",70,settings*1.3);
  ctx.fillStyle = "#000080";
+ ctx.drawImage(image1, image1X, 100, 90, 100);
  ctx.fillRect(menu.x, menu.y, menu.width, menu.height);
  ctx.fillStyle = "black"
  ctx.strokeStyle = color;
@@ -238,6 +278,7 @@ function draw(){
  ctx.fillText("Settings", textX, 200);
  ctx.fillText("Home", textX, 250);
  ctx.fillStyle = "black";
+ ctx.fillText(page,(page,window.innerWidth/2) - (page.length*5),40);
  ctx.fillText(username, window.innerWidth -  thing - xthingy, 50)
  ctx.fillStyle = "#000080";
 }
