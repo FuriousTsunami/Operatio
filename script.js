@@ -16,14 +16,17 @@ var data = {
   username: 0,
   password: 0,
 }
-var jsonString = 0;
-var localStorageCount = 0;
+var users = {};
+userCount = 0;
 var image1 = new Image();
 image1.src = "https://i.ibb.co/NLSF5RK/Screenshot-2020-10-07-at-2-48-50-PM.png";
 var image1X = -1000;
 var image2 = new Image();
 image2.src = "https://i.ibb.co/cNYb0r8/Screen-Shot-2020-10-07-at-3-50-21-PM.png";
 var image2X = -1000;
+var image3 = new Image();
+image3.src = "https://i.ibb.co/m8mNrqB/Screen-Shot-2020-10-07-at-4-31-03-PM.png";
+var image3X = 0;
 var textX = -100;
 var color = "black";
 var loop = setInterval(draw, interval);
@@ -243,9 +246,8 @@ function getRndInteger(min, max) {
 function draw(){
  //Clear Screen
  requirements();
- 
  ctx.fillStyle = "black";
- ctx.fillText("Start your journey in becoming a healthier human!", window.innerWidth/2 - 182, window.innerHeight/2);
+ ctx.fillText("Start your journey in becoming a healthier human!", window.innerWidth/2 - 182, window.innerHeight/3);
  ctx.fillStyle = "#000080";
  ctx.fillStyle = "white";
  ctx.fillRect(0,0,favorite*(window.innerWidth/90),window.innerHeight)
