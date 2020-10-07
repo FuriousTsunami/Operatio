@@ -176,6 +176,10 @@ async function SignInScreen(){
       text: "Please enter a username less than 9 characters and more than 3 characters.",
       icon: "error",
     })
+    favorite = 0;
+    settings = 0;
+    explore = 0;
+    page = "Home";
     return;
   }
   data.username = usernamePrompt;
@@ -189,6 +193,10 @@ async function SignInScreen(){
   },
   });
   if (passwordPrompt == null || passwordPrompt == undefined){
+    favorite = 0;
+    settings = 0;
+    explore = 0;
+    page = "Home";
     return;
   }
   if (passwordPrompt.length < 7){
@@ -199,6 +207,10 @@ async function SignInScreen(){
         text: "Your password must be more than 7 characters. Your new password is: \n" + passwordPrompt,
         icon: "error",
       })
+    favorite = 0;
+    settings = 0;
+    explore = 0;
+    page = "Home";
   }
   await swal({
     title: "Success!",
@@ -279,7 +291,7 @@ function draw(){
  ctx.fillText("Home", textX, 250);
  ctx.fillStyle = "black";
  ctx.fillText(page,(page,window.innerWidth/2) - (page.length*5),40);
- ctx.fillText(username, window.innerWidth -  thing - xthingy, 50)
+ ctx.fillText(data.username, window.innerWidth -  thing - xthingy, 50)
  ctx.fillStyle = "#000080";
 }
 //Event Handlers
