@@ -16,9 +16,14 @@ var data = {
   username: 0,
   password: 0,
 }
+var jsonString = 0;
+var localStorageCount = 0;
 var image1 = new Image();
 image1.src = "https://i.ibb.co/NLSF5RK/Screenshot-2020-10-07-at-2-48-50-PM.png";
 var image1X = -1000;
+var image2 = new Image();
+image2.src = "https://i.ibb.co/cNYb0r8/Screen-Shot-2020-10-07-at-3-50-21-PM.png";
+var image2X = -1000;
 var textX = -100;
 var color = "black";
 var loop = setInterval(draw, interval);
@@ -74,6 +79,7 @@ function checkFavoritesClick(event){
     settings = 0;
     page = "Favorites";
     image1X = 20;
+    image2X = -1000;
   }
 }
 function checkExploreClick(event){
@@ -85,6 +91,7 @@ function checkExploreClick(event){
     explore = 90;
     page = "Explore";
     image1X = -1000;
+    image2X = 20;
    }
 }
 function checkSettingsClick(event){
@@ -96,6 +103,7 @@ function checkSettingsClick(event){
     explore = 0;
     page = "Settings";
     image1X = -1000;
+    image2X = -1000;
   } 
 }
 function checkHomeClick(event){
@@ -107,6 +115,7 @@ function checkHomeClick(event){
     explore = 0;
     page = "Home";
     image1X = -1000;
+    image2X = -1000;
   } 
 }
 function checkSignInClick(event){
@@ -165,6 +174,7 @@ async function SignInScreen(){
   },
   });
   if (usernamePrompt == null || usernamePrompt == undefined){
+    page = "Home";
     return;
   }
   if (usernamePrompt == "    " || usernamePrompt == "     " || usernamePrompt == "      " || usernamePrompt == "       " || usernamePrompt == "        "){
@@ -176,9 +186,6 @@ async function SignInScreen(){
       text: "Please enter a username less than 9 characters and more than 3 characters.",
       icon: "error",
     })
-    favorite = 0;
-    settings = 0;
-    explore = 0;
     page = "Home";
     return;
   }
@@ -235,8 +242,7 @@ function getRndInteger(min, max) {
 function draw(){
  //Clear Screen
  requirements();
- localStorage.setItem("data", JSON.stringify(data));
- data = JSON.parse(localStorage.getItem("data"));
+ 
  ctx.fillStyle = "black";
  ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
  ctx.fillText("This is where we will put our homepage.", window.innerWidth/2 - 150, window.innerHeight/2);
@@ -244,12 +250,15 @@ function draw(){
  ctx.fillStyle = "white";
  ctx.fillRect(0,0,favorite*(window.innerWidth/90),window.innerHeight)
  ctx.fillStyle = "#000080";
+ if(data.username == 0){
+   data.username = "Sign In";
+ }
  //Favorites
  for(var e = 0; e <= Math.round(window.innerWidth/120); e++){
   var f = "" + (e + 1);
   ctx.fillRect((e*100) + 20, 100, favorite, 100);
   ctx.fillStyle = "white";
-  ctx.fillText(f,(e*100) + 60,155);
+  ctx.fillText("",(e*100) + 60,155);
   ctx.fillStyle = "#000080";
  }
  //Explore
@@ -260,7 +269,7 @@ function draw(){
   var f = "" + (e + 1);
   ctx.fillRect((e*100) + 20, 100,explore, 100);
   ctx.fillStyle = "white";
-  ctx.fillText(f,(e*100) + 60,155);
+  ctx.fillText("",(e*100) + 60,155);
   ctx.fillStyle = "#000080";
  }
  ctx.fillStyle = "white";
@@ -271,6 +280,7 @@ function draw(){
  ctx.fillText("Language : English",70,settings*1.3);
  ctx.fillStyle = "#000080";
  ctx.drawImage(image1, image1X, 100, 90, 100);
+ ctx.drawImage(image2,image2X,100,90,100)
  ctx.fillRect(menu.x, menu.y, menu.width, menu.height);
  ctx.fillStyle = "black"
  ctx.strokeStyle = color;
