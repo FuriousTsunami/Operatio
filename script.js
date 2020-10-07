@@ -221,6 +221,7 @@ async function SignInScreen(){
   }
   await swal({
     title: "Success!",
+    text: "Click on the menu to start your journey in becoming healthier!",
     icon: "success",
   })
   data.password = passwordPrompt;
@@ -244,8 +245,7 @@ function draw(){
  requirements();
  
  ctx.fillStyle = "black";
- ctx.fillText("Operatio", window.innerWidth/2 - 37, window.innerHeight/4);
- ctx.fillText("This is where we will put our homepage.", window.innerWidth/2 - 150, window.innerHeight/2);
+ ctx.fillText("Start your journey in becoming a healthier human!", window.innerWidth/2 - 182, window.innerHeight/2);
  ctx.fillStyle = "#000080";
  ctx.fillStyle = "white";
  ctx.fillRect(0,0,favorite*(window.innerWidth/90),window.innerHeight)
@@ -300,7 +300,7 @@ function draw(){
  ctx.fillText("Settings", textX, 200);
  ctx.fillText("Home", textX, 250);
  ctx.fillStyle = "black";
- ctx.fillText(page,(page,window.innerWidth/2) - (page.length*5),40);
+ ctx.fillText(page,(window.innerWidth/2) - (page.length*4.5),40);
  ctx.fillText(data.username, window.innerWidth -  thing - xthingy, 50)
  ctx.fillStyle = "#000080";
 }
