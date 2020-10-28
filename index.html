@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<title>Operatio</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<link rel="stylesheet" href="/CSS/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="/CSS/style.css">
+	<link rel="manifest" href="manifest.json">
+	<!-- ios support -->
+	<link rel="apple-touch-icon" href="/Images/Icon-96.png">
+	<meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+  <!-- Icon -->
+  <link rel="icon" href="/Images/Icon-72.png">
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:none">
+	<!-- Menu -->
+	<nav class="w3-sidebar w3-bar-block w3-red w3-text-white w3-collapse w3-top w3-center" style="z-index: 3; width: 300px; font-weight: bold"
+	 id="menu"><br>
+      <h3 class = "w3-padding-32 w3-center"><a href = "/" style = "text-decoration: none"><b>Operatio</b></a></h3>
+      <a href = "#" onclick = "closeMenu()" class = "w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+      <a href = "/" onclick = "closeMenu()" class = "w3-bar-item w3-button">HOME</a> 
+      <a href = "/Explore" onclick = "closeMenu()" class = "w3-bar-item w3-button">EXPLORE</a> 
+      <a href = "/Favorites" onclick = "closeMenu()" class = "w3-bar-item w3-button">FAVORITES</a>
+      <a href = "/Settings" onclick = "closeMenu()" class = "w3-bar-item w3-button">SETTINGS</a>
+      <a href = "/About" onclick = "closeMenu()" class = "w3-bar-item w3-button">ABOUT US</a>
+      <a href = "/LogHours" onclick="closeMenu()" class = "w3-bar-item w3-button" >LOG HOURS</a>
+      <a href = "/SignIn" onclick = "closeMenu()" class = "w3-bar-item w3-button signInLink" style = "margin-top: 50px">SIGN IN</a>
+    </nav>
+    <!-- Top menu on small screens -->
+    <header class = "w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+      <span class = "w3-left w3-padding"><a style = "text-decoration: none" href = "/index.html">Operatio</a></span>
+      <a href = "#" class = "w3-right w3-button w3-white" onclick = "openMenu()">☰</a>
+    </header>
+
+    <!-- Overlay effect when opening menu on small screens -->
+    <div class = "w3-overlay w3-hide-large w3-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>=
+
+      <!-- !PAGE CONTENT! -->
+      <div class = "w3-main" style = "margin-left: 300px">
+
+      <!-- Push down content on small screens --> 
+    <div class = "w3-hide-large" style = "margin-top: 83px"></div>
+    <div class = "w3-center">
+      <button class = "w3-center w3-button w3-red w3-text-white w3-margin"><a class = "w3-button" href = "/GetStarted">Get Started</a></button>
+      <br>
+      <img src = "Images/Icon-72.png"></img>
+    </div>
+      <!-- Footer -->
+      <footer class = "w3-container w3-padding-32 w3-text-red w3-center">  
+        <h3>Operatio: Making People More Active</h3>
+      </footer>
+
+      <!-- End page content -->
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
+    authDomain: "operatio-8c56e.firebaseapp.com",
+    databaseURL: "https://operatio-8c56e.firebaseio.com",
+    projectId: "operatio-8c56e",
+    storageBucket: "operatio-8c56e.appspot.com",
+    messagingSenderId: "247443151787",
+    appId: "1:247443151787:web:e237deb933f278f07110ee",
+    measurementId: "G-J17M6JB1N4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  firebase.analytics();
+</script>
+    <script src = "/JavaScript/db.js"></script>
+    <script src = "/app.js"></script>
+    <script src = "/JavaScript/ui.js"></script>
+  </body>
+</html>
