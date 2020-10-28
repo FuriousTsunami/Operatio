@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Operatio</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<link rel="stylesheet" href="/CSS/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="/CSS/style.css">
+	<link rel="manifest" href="manifest.json">
+	<!-- ios support -->
+	<link rel="apple-touch-icon" href="/Images/Icon-96.png">
+	<meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+  <!-- Icon -->
+  <link rel="icon" href="/Images/Icon-72.png">
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width: none">
+  
+	<h3 class="w3-padding-32 w3-center"><b>Operatio</b></h3>
+
+      <!-- !PAGE CONTENT! -->
+      <div class = "w3-main">
+
+      <!-- Sign In -->
+      <div class = "w3-center">
+        <label id = "hoursLabel" for = "minutes">Please enter hours of activity:</label>
+        <input id = "hours" class = "w3-input w3-margin" placeholder = "Hours"></input>
+        <h5 id = "inputError" class = "w3-red"></h5>
+        <a href = "/" id = "cancelHours" class = "w3-button w3-red w3-margin">CANCEL</a>
+        <a href = "#" id = "submitHours" class = "w3-button w3-red w3-margin" onclick = "logHours()">SUBMIT</a>
+        <a href = "/" id = "hide" class = "w3-button w3-red w3-margin">GO HOME</a>
+        <h3 id = "success" style = "display: none">SUCCESS!</h3>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class = "w3-container w3-padding-32 w3-text-red w3-center">  
+        <h4>Operatio: Making People More Active</h4>
+      </footer>
+
+      <!-- End page content -->
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
+    authDomain: "operatio-8c56e.firebaseapp.com",
+    databaseURL: "https://operatio-8c56e.firebaseio.com",
+    projectId: "operatio-8c56e",
+    storageBucket: "operatio-8c56e.appspot.com",
+    messagingSenderId: "247443151787",
+    appId: "1:247443151787:web:e237deb933f278f07110ee",
+    measurementId: "G-J17M6JB1N4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  firebase.analytics();
+</script>
+    <script src = "/app.js"></script>
+    <script src = "/JavaScript/ui.js"></script>
+    <script src = "/JavaScript/db.js"></script>
+  </body>
+</html>
