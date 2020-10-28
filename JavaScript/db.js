@@ -1,3 +1,9 @@
+firebase.firestore().settings({
+  cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
+});
+
+firebase.firestore().enablePersistence()
+  
 db.collection("users").onSnapshot((snapshot) => {
   //console.log(snapshot.docChanges());
   snapshot.docChanges().forEach(change => {
