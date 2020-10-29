@@ -31,19 +31,21 @@ self.addEventListener("install", evt => {
 });
 self.addEventListener("activate", evt => {
   console.log("ServiceWorker Activated");
-  evt.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(keys
-        .filter(key => key !== staticCacheName)
-        .map(key => caches.delete(key))
-      );
-    })
-  );
 });
 self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
-      return fetch(fetchEvent.request) || res;
+      if(fetchEvent.request){
+        caches.delete(staticCacheName);
+        caches.open(staticCacheName).then((cache) => {
+        console.log("Caching Assets");
+        for(var i = 0; i <= assets.length; i++){
+          cache.add(assets[i]);
+        }
+        return fetch(fetchEvent.request);
+        }else{
+          return res;
+        }
     })
   )
 })
