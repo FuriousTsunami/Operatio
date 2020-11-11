@@ -36,14 +36,6 @@ self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       if(fetchEvent.request){
-        caches.delete(staticCacheName);
-        caches.open(staticCacheName).then((cache) => {
-        console.log("Caching Assets");
-        for(var i = 0; i <= assets.length; i++){
-          cache.add(assets[i]);
-        }
-        return fetch(fetchEvent.request);
-        }else{
           return res;
         }
     })
