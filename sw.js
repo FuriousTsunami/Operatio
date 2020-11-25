@@ -32,12 +32,3 @@ self.addEventListener("install", evt => {
 self.addEventListener("activate", evt => {
   console.log("ServiceWorker Activated");
 });
-self.addEventListener("fetch", fetchEvent => {
-  fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then(res => {
-      if(fetchEvent.request){
-          return res;
-        }
-    })
-  )
-})
