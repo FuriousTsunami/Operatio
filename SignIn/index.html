@@ -5,9 +5,9 @@
 	<title>Operatio</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width = device-width, initial-scale = 1">
-	<link rel="stylesheet" href="/CSS/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="/CSS/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="/CSS/main.css">
 	<link rel="manifest" href="manifest.json">
 	<!-- ios support -->
 	<link rel="apple-touch-icon" href="/Images/Icon-96.png">
@@ -17,29 +17,31 @@
   <link rel="icon" href="/Images/Icon-72.png">
 </head>
 
-<body class="w3-light-grey w3-content" style="max-width: none">
+<body class="style-light-grey style-content" style="max-width: none">
   
-	<h3 class="w3-padding-32 w3-center"><b>Operatio</b></h3>
+	<h3 class="style-padding-32 style-center"><b>Operatio</b></h3>
 
       <!-- !PAGE CONTENT! -->
-      <div class = "w3-main">
+      <div class = "style-main">
 
       <!-- Sign In -->
-      <div class = "w3-center">
+      <div class = "style-center">
         <label id = "usernameLabel" for = "username">Please enter a username less than 9 characters and more than 3 characters:</label>
-        <input type = "username" id = "username" class = "w3-input w3-margin" placeholder = "Username"></input>
+        <input type = "username" id = "username" class = "style-input style-margin" placeholder = "Username"></input>
         <label id = "passwordLabel" for = "password">Please enter a password more than 7 characters:</label>
-        <input type = "password" id = "password" class = "w3-input w3-margin" placeholder = "Password"></input>
-        <h5 id = "inputError" class = "w3-red"></h5>
-        <a href = "/" id = "cancel" class = "w3-button w3-red w3-margin">CANCEL</a>
-        <a href = "#" id = "submit" class = "w3-button w3-red w3-margin" onclick = "submit()">SUBMIT</a>
-        <a href = "/" id = "hide" class = "w3-button w3-red w3-margin">GO HOME</a>
-               <h3 id = "success" style = "display: none">SUCCESS!</h3>
+        <input type = "password" id = "password" class = "style-input style-margin" placeholder = "Password"></input>
+        <label for = "weight">Please enter your current weight:</label>
+        <input type = "weight" id = "weight" class = "style-input style-margin" placeholder = "Weight"></input>
+        <h5 id = "inputError" class = "style-red"></h5>
+        <a href = "/" id = "cancel" class = "style-button style-red style-margin">CANCEL</a>
+        <a href = "#" id = "submit" class = "style-button style-red style-margin" onclick = "submit()">SUBMIT</a>
+        <a href = "/" id = "hide" class = "style-button style-red style-margin">GO HOME</a>
+          <h3 id = "success" style = "display: none">SUCCESS!</h3>
         </div>
       </div>
 
       <!-- Footer -->
-      <footer class = "w3-container w3-padding-32 w3-text-red w3-center">  
+      <footer class = "style-container style-padding-32 style-text-red style-center">  
         <h4>Operatio: Making People More Active</h4>
       </footer>
 
@@ -72,7 +74,7 @@
   firebase.analytics();
 </script>
     <script src = "/app.js"></script>
-    <script src = "/JavaScript/ui.js"></script>
     <script src = "/JavaScript/db.js"></script>
+    <script src = "/JavaScript/ui.js"></script>
   </body>
 </html>

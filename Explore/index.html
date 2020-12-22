@@ -5,72 +5,112 @@
 	<title>Operatio</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width = device-width, initial-scale = 1">
-	<link rel="stylesheet" href="/CSS/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="/CSS/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="/CSS/main.css">
 	<link rel="manifest" href="manifest.json">
-	<!-- ios support -->
+	<!-- iOS support -->
 	<link rel="apple-touch-icon" href="/Images/Icon-96.png">
 	<meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
-	<meta name="theme-color" content="#f44336"/>
-  <!-- Icon -->
-  <link rel="icon" href="/Images/Icon-72.png">
+	<meta name="theme-color" content="#f44336" />
+	<!-- Icon -->
+	<link rel="icon" href="/Images/Icon-72.png">
 </head>
 
-<body class="w3-light-grey w3-content" style="max-width:none">
+<body class="style-light-grey style-content" style="max-width:none">
 	<!-- Menu -->
-	<nav class="w3-sidebar w3-bar-block w3-red w3-text-white w3-collapse w3-top w3-center" style="z-index: 3; width: 300px; font-weight: bold"
+	<nav class="style-sidebar style-bar-block style-red style-text-white style-collapse style-top style-center" style="z-index: 3; width: 300px; font-weight: bold"
 	 id="menu"><br>
-      <h3 class = "w3-padding-32 w3-center"><a href = "/" style = "text-decoration: none"><b>Operatio</b></a></h3>
-      <a href = "#" onclick = "closeMenu()" class = "w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
-      <a href = "/" onclick = "closeMenu()" class = "w3-bar-item w3-button">HOME</a> 
-      <a href = "/Explore" onclick = "closeMenu()" class = "w3-bar-item w3-button">EXPLORE</a> 
-      <a href = "/Favorites" onclick = "closeMenu()" class = "w3-bar-item w3-button">FAVORITES</a>
-      <a href = "/Settings" onclick = "closeMenu()" class = "w3-bar-item w3-button">SETTINGS</a>
-      <a href = "/About" onclick = "closeMenu()" class = "w3-bar-item w3-button">ABOUT US</a>
-      <a href = "/LogHours" onclick="closeMenu()" class = "w3-bar-item w3-button" >LOG HOURS</a>
-      <a href = "/SignIn" onclick = "closeMenu()" class = "w3-bar-item w3-button signInLink" style = "margin-top: 50px">SIGN IN</a>
+      <h3 class = "style-padding-32 style-center"><a href = "/" style = "text-decoration: none"><b>Operatio</b></a></h3>
+      <a href = "#" onclick = "closeMenu()" class = "style-bar-item style-button style-padding style-hide-large">CLOSE</a>
+      <a href = "/" onclick = "closeMenu()" class = "style-bar-item style-button">HOME</a> 
+      <a href = "/Explore" onclick = "closeMenu()" class = "style-bar-item style-button">EXPLORE</a> 
+      <a href = "/Friends" onclick="closeMenu()" class = "style-bar-item style-button" >FRIENDS</a>
+      <a href = "/Goal" onclick="closeMenu()" class = "style-bar-item style-button" >MY GOAL</a>
+      <a href = "/Favorites" onclick = "closeMenu()" class = "style-bar-item style-button">FAVORITES</a>
+      <a href = "/LogHours" onclick="closeMenu()" class = "style-bar-item style-button" >LOG HOURS</a>
+      <a href = "/Settings" onclick = "closeMenu()" class = "style-bar-item style-button">SETTINGS</a>
+      <a href = "/About" onclick = "closeMenu()" class = "style-bar-item style-button">ABOUT US</a>
+      <a href = "/SignIn" onclick = "closeMenu()" class = "style-bar-item style-button signInLink" style = "margin-top: 50px">SIGN IN</a>
     </nav>
 
 
     <!-- Top menu on small screens -->
-    <header class = "w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-      <span class = "w3-left w3-padding"><a style = "text-decoration: none" href = "/index.html">Operatio</a></span>
-      <a href = "#" class = "w3-right w3-button w3-white" onclick = "openMenu()">☰</a>
+    <header class = "style-container style-top style-hide-large style-white style-xlarge style-padding-16">
+      <span class = "style-left style-padding"><a style = "text-decoration: none" href = "/index.html">Operatio</a></span>
+      <a href = "#" class = "style-right style-button style-white" onclick = "openMenu()">☰</a>
     </header>
 
     <!-- Overlay effect when opening menu on small screens -->
-    <div class = "w3-overlay w3-hide-large w3-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>
+    <div class = "style-overlay style-hide-large style-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>
 
     <!-- !PAGE CONTENT! -->
-    <div class = "w3-main" style = "margin-left:300px">
+    <div class = "style-main" style = "margin-left:300px">
       <!-- Push down content on small screens --> 
-      <div class = "w3-hide-large" style = "margin-top: 83px"></div>
-      <div class = "w3-container w3-grey w3-text-white w3-center">
+      <div class = "style-hide-large" style = "margin-top: 83px"></div>
+      <div class = "style-container style-grey style-text-white style-center">
           <h3>Explore</h3>
       </div>
+      <div class = "style-container 3-text-white style-center" style = "margin-top: 5px; margin-bottom: 5px">
+          <h4>Space</h4>
+          <select id = "space">
+            <option value = "small">Small</option>
+            <option value = "medium">Medium</option>
+            <option value = "large">Large</option>
+            <option value = "home">I'm at Home</option>
+          </select>
+          <h4>Time</h4>
+          <select id = "time">
+            <option value = "5">5 min</option>
+            <option value = "10">10 min</option>
+            <option value = "15">15 min</option>
+            <option value = "20">20 min</option>
+            <option value = "25">25 min</option>
+            <option value = "30">30 min</option>
+            <option value = "more">More than 30 min</option>
+          </select>
+          <h4>Type of Exercise</h4>
+          <select id = "type">
+            <option value = "endure">Cardio</option>
+            <option value = "strength">Strength</option>
+            <option value = "flex">Yoga</option>
+          </select>
+          <h4>Exercise Diffulty</h4>
+          <select id = "difficulty">
+            <option value = "easy">Easy</option>
+            <option value = "medium">Medium</option>
+            <option value = "hard">Hard</option>
+            <option value = "intense">Intense</option>
+            <option value = "expert">Expert</option>
+          </select>
+          <br>
+          <h1> </h1>
+          <button onclick = "exploreSearch()" class = "style-button style-red">Search!</button>
+          <br>
+          <h1> </h1>
+      </div>
       <!-- Videos -->
-      <div class = "w3-row">
-        <div class = "w3-third">
+      <div class = "style-row">
+        <div class = "style-third">
           <video style = "width: 100%" controls>
             <source src = "" type = "video/mp4">
           </video>
         </div>
 
-        <div class = "w3-third">
+        <div class = "style-third">
           <video style = "width: 100%" controls>
             <source src = "" type = "video/mp4">
           </video>
         </div>
     
-        <div class = "w3-third">
+        <div class = "style-third">
           <video style = "width: 100%" controls>
             <source src = "" type = "video/mp4">
           </video>
         </div>
       </div>
       <!-- Footer -->
-      <footer class = "w3-container w3-padding-32 w3-text-red w3-center">  
+      <footer class = "style-container style-padding-32 style-text-red style-center">  
         <h4>Operatio: Making People More Active</h4>
         
       </footer>
