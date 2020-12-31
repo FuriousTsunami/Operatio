@@ -37,7 +37,7 @@
       <a href = "#" class = "style-right style-button style-white" onclick = "openMenu()">☰</a>
     </header>
 
-    <div class = "style-overlay style-hide-large style-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>=
+    <div class = "style-overlay style-hide-large style-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>
 
       <!-- !PAGE CONTENT! -->
       <div class = "style-main" style = "margin-left: 300px">
@@ -50,6 +50,11 @@
       <a href = "About/">
         <img src = "Images/Icon-96.png"></img>
       </a>
+      <h4 id = "test">Enter your current Weight and Height:</h4>
+      <input style = "style-input"type="number"id="heightf"placeholder="ft.">
+      <input style = "style-input"type="number"id="heighti"placeholder="in."><br>
+      <input style = "style-input" type="number"id="weight"placeholder="lbs."><br>
+      <button id = "sWeight" style = "margin-top: 20px" onclick="logWeight();">Submit</button>
       <!-- Footer -->
       <footer class = "style-container style-padding-32 style-text-red style-center">  
         <h3>Operatio: Making People More Active</h3>
@@ -58,30 +63,30 @@
       <!-- End page content -->
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
-    authDomain: "operatio-8c56e.firebaseapp.com",
-    databaseURL: "https://operatio-8c56e.firebaseio.com",
-    projectId: "operatio-8c56e",
-    storageBucket: "operatio-8c56e.appspot.com",
-    messagingSenderId: "247443151787",
-    appId: "1:247443151787:web:e237deb933f278f07110ee",
-    measurementId: "G-J17M6JB1N4"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  firebase.analytics();
-</script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
+        authDomain: "operatio-8c56e.firebaseapp.com",
+        databaseURL: "https://operatio-8c56e.firebaseio.com",
+        projectId: "operatio-8c56e",
+        storageBucket: "operatio-8c56e.appspot.com",
+        messagingSenderId: "247443151787",
+        appId: "1:247443151787:web:e237deb933f278f07110ee",
+        measurementId: "G-J17M6JB1N4"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      firebase.analytics();
+    </script>
     <script src = "/JavaScript/db.js"></script>
     <script src = "/app.js"></script>
     <script src = "/JavaScript/ui.js"></script>

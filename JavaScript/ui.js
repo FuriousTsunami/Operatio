@@ -1,4 +1,6 @@
 var gallery = 1;
+var thing  = "";
+var an = "";
 var openMenu = function () {
   document.getElementById("menu").style.display = "block";
   document.getElementById("menuOverlay").style.display = "block";
@@ -49,7 +51,8 @@ var submit = function () {
   else if(document.getElementById("password").value.length < 8){
     document.getElementById("inputError").textContent = "Please follow password guidelines";
   }else{
-    addData(document.getElementById("username").value, document.getElementById("password").value);
+    db.addData(document.getElementById("username").value, document.getElementById("password").value);
+    thing = document.getElementById("username").value;
     unHide();
   }
 }
@@ -72,4 +75,28 @@ var logHours = function () {
   document.getElementById("cancelHours").style.display = "none";
   document.getElementById("success").style.display = "block";
   document.getElementById("hide").style.display = "block";
+}
+var logWeight = function() {
+  var e = document.getElementById("weight")
+  e.style.display = "none";
+  var i = document.getElementById("heighti")
+  i.style.display = "none";
+  var f = document.getElementById("heightf")
+  f.style.display = "none";
+  var foot = parseInt(f.value);
+  foot*=12;
+  var inch = parseInt(i.value);
+  document.getElementById("sWeight").style.display = "none";
+  var tHeight = Math.floor(((703*e.value)/((foot+inch)*(foot+inch)))*10)/10;
+  console.log((foot) + i.value);
+  if(tHeight<18.5){
+    an = "Underweight.";
+  }else if(tHeight>25 && tHeight<30){
+    an = "Overweight. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
+  }else if(tHeight>=30){
+    an = "Obese. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
+  }else{
+    an = "at a healthy weight.";
+  }
+  document.getElementById("test").innerText = "Your BMI is "+tHeight+" and you are "+an;
 }
