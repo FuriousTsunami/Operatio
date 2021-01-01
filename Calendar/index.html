@@ -6,15 +6,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width = device-width, initial-scale = 1">
 	<link rel="stylesheet" href="/CSS/style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="/CSS/main.css">
 	<link rel="manifest" href="manifest.json">
-	<!-- ios support -->
+	<!-- iOS support -->
 	<link rel="apple-touch-icon" href="/Images/Icon-96.png">
 	<meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
-	<meta name="theme-color" content="#f44336"/>
-  <!-- Icon -->
-  <link rel="icon" href="/Images/Icon-72.png">
+	<!-- Icon -->
+	<link rel="icon" href="/Images/Icon-96.png">
 </head>
 
 <body class="style-light-grey style-content" style="max-width:none">
@@ -34,50 +32,57 @@
       <a href = "/About" onclick = "closeMenu()" class = "style-bar-item style-button">ABOUT US</a>
       <a href = "/SignIn" onclick = "closeMenu()" class = "style-bar-item style-button signInLink" style = "margin-top: 50px">SIGN IN</a>
     </nav>
-
     <!-- Top menu on small screens -->
     <header class = "style-container style-top style-hide-large style-white style-xlarge style-padding-16">
       <span class = "style-left style-padding"><a style = "text-decoration: none" href = "/index.html">Operatio</a></span>
       <a href = "#" class = "style-right style-button style-white" onclick = "openMenu()">☰</a>
     </header>
 
-    <!-- Overlay effect when opening menu on small screens -->
     <div class = "style-overlay style-hide-large style-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>
 
       <!-- !PAGE CONTENT! -->
-      <div class = "style-main" style = "margin-left:300px">
-      <!-- Push down content on small screens --> 
-      <div class = "style-hide-large" style = "margin-top: 83px"></div>
-      <div class = "style-container style-grey style-text-white style-center">
-          <h3>Favorites</h3>
-      </div>
-      <!-- Videos -->
-      <div class = "style-row">
-        <div class = "style-third">
-          <video style = "width: 100%" controls>
-            <source src = "" type = "video/mp4">
-          </video>
-        </div>
+      <div class = "style-main" style = "margin-left: 300px">
 
-        <div class = "style-third">
-          <video style = "width: 100%" controls>
-            <source src = "" type = "video/mp4">
-          </video>
-        </div>
-    
-        <div class = "style-third">
-          <video style = "width: 100%" controls>
-            <source src = "" type = "video/mp4">
-          </video>
-        </div>
-      </div>
+      <!-- Push down content on small screens --> 
+    <div class = "style-hide-large" style = "margin-top: 83px"></div>
+    <div class = "style-center">
+      <!--
+      <iframe src="https://calendar.google.com/calendar/embed?src=8esb3ijpvkl1rlee4o68qjmcd0%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height = "500" frameborder="0"></iframe>
+      <h4>You can print this schedule and follow it at your own convienience</h4>
+      -->
+      
       <!-- Footer -->
       <footer class = "style-container style-padding-32 style-text-red style-center">  
-        <h4>Operatio: Making People More Active</h4>
+        <h3>Operatio: Making People More Active</h3>
       </footer>
-
       <!-- End page content -->
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
+        authDomain: "operatio-8c56e.firebaseapp.com",
+        databaseURL: "https://operatio-8c56e.firebaseio.com",
+        projectId: "operatio-8c56e",
+        storageBucket: "operatio-8c56e.appspot.com",
+        messagingSenderId: "247443151787",
+        appId: "1:247443151787:web:e237deb933f278f07110ee",
+        measurementId: "G-J17M6JB1N4"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      firebase.analytics();
+    </script>
+    <script src = "/JavaScript/db.js"></script>
     <script src = "/app.js"></script>
     <script src = "/JavaScript/ui.js"></script>
   </body>
