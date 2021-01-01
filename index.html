@@ -25,6 +25,7 @@
       <a href = "/Explore" onclick = "closeMenu()" class = "style-bar-item style-button">EXPLORE</a> 
       <a href = "/Friends" onclick="closeMenu()" class = "style-bar-item style-button" >FRIENDS</a>
       <a href = "/Goal" onclick="closeMenu()" class = "style-bar-item style-button" >MY GOAL</a>
+      <a href = "/Calendar" onclick = "closeMenu()" class = "style-bar-item style-button">CALENDAR</a>
       <a href = "/Favorites" onclick = "closeMenu()" class = "style-bar-item style-button">FAVORITES</a>
       <a href = "/LogHours" onclick="closeMenu()" class = "style-bar-item style-button" >LOG HOURS</a>
       <a href = "/Settings" onclick = "closeMenu()" class = "style-bar-item style-button">SETTINGS</a>
@@ -54,7 +55,8 @@
       <input style = "style-input"type="number"id="heightf"placeholder="ft.">
       <input style = "style-input"type="number"id="heighti"placeholder="in."><br>
       <input style = "style-input" type="number"id="weight"placeholder="lbs."><br>
-      <button id = "sWeight" style = "margin-top: 20px" onclick="logWeight();">Submit</button>
+      <button id = "sWeight" style = "margin-top: 20px" onclick="logWeight();">Submit</button><br>
+      <h4 id="wError" class="style-text-red" style="display: none">Please enter valid values.</h4>
       <!-- Footer -->
       <footer class = "style-container style-padding-32 style-text-red style-center">  
         <h3>Operatio: Making People More Active</h3>

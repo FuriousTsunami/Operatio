@@ -1,5 +1,5 @@
 var gallery = 1;
-var thing  = "";
+var thing = "";
 var an = "";
 var openMenu = function () {
   document.getElementById("menu").style.display = "block";
@@ -45,12 +45,12 @@ var exploreSearch = function () {
   });
 }
 var submit = function () {
-  if (document.getElementById("username").value.length < 4 || document.getElementById("username").value.length > 8){
+  if (document.getElementById("username").value.length < 4 || document.getElementById("username").value.length > 8) {
     document.getElementById("inputError").textContent = "Please follow username guidelines";
   }
-  else if(document.getElementById("password").value.length < 8){
+  else if (document.getElementById("password").value.length < 8) {
     document.getElementById("inputError").textContent = "Please follow password guidelines";
-  }else{
+  } else {
     db.addData(document.getElementById("username").value, document.getElementById("password").value);
     thing = document.getElementById("username").value;
     unHide();
@@ -66,7 +66,7 @@ var unHide = function () {
   document.getElementById("usernameLabel").style.display = "none";
   document.getElementById("passwordLabel").style.display = "none";
   document.getElementById("success").style.display = "block";
-          
+
 }
 var logHours = function () {
   document.getElementById("hours").style.display = "none";
@@ -76,27 +76,34 @@ var logHours = function () {
   document.getElementById("success").style.display = "block";
   document.getElementById("hide").style.display = "block";
 }
-var logWeight = function() {
+var logWeight = function () {
   var e = document.getElementById("weight")
-  e.style.display = "none";
   var i = document.getElementById("heighti")
-  i.style.display = "none";
   var f = document.getElementById("heightf")
+  if (!e.value || !i.value || !f.value) {
+    document.getElementById("wError").style.display = "block";
+    return;
+  } else {
+    document.getElementById("wError").style.display = "none";
+  }
   f.style.display = "none";
+  i.style.display = "none";
+  e.style.display = "none";
   var foot = parseInt(f.value);
-  foot*=12;
+  var place = 10;
+  foot *= 12;
   var inch = parseInt(i.value);
   document.getElementById("sWeight").style.display = "none";
-  var tHeight = Math.floor(((703*e.value)/((foot+inch)*(foot+inch)))*10)/10;
+  var tHeight = Math.floor(((703 * e.value) / ((foot + inch) * (foot + inch))) * place) / place;
   console.log((foot) + i.value);
-  if(tHeight<18.5){
+  if (tHeight < 18.5) {
     an = "Underweight.";
-  }else if(tHeight>25 && tHeight<30){
+  } else if (tHeight > 25 && tHeight < 30) {
     an = "Overweight. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
-  }else if(tHeight>=30){
+  } else if (tHeight >= 30) {
     an = "Obese. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
-  }else{
+  } else {
     an = "at a healthy weight.";
   }
-  document.getElementById("test").innerText = "Your BMI is "+tHeight+" and you are "+an;
+  document.getElementById("test").innerText = "Your BMI is " + tHeight + " and you are " + an;
 }
