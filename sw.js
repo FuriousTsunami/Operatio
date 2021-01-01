@@ -16,6 +16,7 @@ const assets = [
   "https://operatio.js.org/Settings",
   "https://operatio.js.org/SignIn",
   "https://operatio.js.org/manifest.json",
+  "https://operatio.js.org/Calendar"
 ];
 
 self.addEventListener("install", evt => {
