@@ -41,7 +41,7 @@
     </header>
 
     <!-- Overlay effect when opening menu on small screens -->
-    <div class = "style-overlay style-hide-large style-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>=
+    <div class = "style-overlay style-hide-large style-animate-opacity" onclick = "closeMenu()" style = "cursor: pointer" title = "Close Side Menu" id = "menuOverlay"></div>
 
       <!-- !PAGE CONTENT! -->
       <div class = "style-main" style = "margin-left: 300px">
@@ -52,11 +52,10 @@
       <button class = "style-button style-red" onclick = "changeGoal();">Finish Goal</button>
     </div>
     <div id = "print" class = "style-center">
-      <div id = "progress">
         <h1>Goal Progress:</h1>
-        <progress id = "pBar" class = "style-progress" value = "25" max = "100"></progress>
-        <h4 id = "progressText">25%</h4>
-      </div>
+        <div class="style-center" style="margin-left:25vw; position: relative; height:50vw; width:50vw">
+          <canvas id="myChart"></canvas>
+        </div>
       <div id = "certificate" style = "display: none">
         <h1>Certificate</h1>
         <h2>You did it!</h2>
@@ -64,17 +63,19 @@
         <h4>Signed,</h4>
         <h4 class = "cursive">Sunay K. and Arjun P.</h4>
         <div  class = "style-center">
-        <button onclick = "printElement('print')">Print Certificate</button>
+        <button onclick = "printElement(document.getElementById('certificate'))" id = "printButton">Print Certificate</button>
         </div>
       </div>
     </div>
       <!-- Footer -->
-      <footer class = "style-container style-padding-32 style-text-red style-center">  
-        <h3>Operatio: Making People More Active</h3>
+      <footer class = "style-container style-padding-32 style-text-red style-center">
+        <h3 style = "margin-top: ">Operatio: Making People More Active</h3>
       </footer>
       <!-- End page content -->
     </div>
     <script src = "/app.js"></script>
     <script src = "/JavaScript/ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src = "/JavaScript/chart.js"></script>
   </body>
 </html>
