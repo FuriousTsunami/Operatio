@@ -1,6 +1,7 @@
 var gallery = 1;
 var thing = "";
 var an = "";
+var s = true;
 var openMenu = function () {
   document.getElementById("menu").style.display = "block";
   document.getElementById("menuOverlay").style.display = "block";
@@ -107,3 +108,25 @@ var logWeight = function () {
   }
   document.getElementById("test").innerText = "Your BMI is " + tHeight + " and you are " + an;
 }
+/*
+var secure = function () {
+	if(s){
+		document.body.innerHTML = "<a href = '/Secure/index.html' id = 'u'>goto</a>";
+		document.getElementById("u").click();
+		s = false;
+	}
+}
+
+var check = function() {
+	if(document.getElementById('t').value == 'TempPass'){
+		document.body.innerHTML = "<a href = '/index.html' id = 'ui'>goto</a>";
+		document.getElementById("ui").click();
+		s = false;
+	}
+}
+*/
+window.scroll({
+  top: 2500, 
+  left: 0, 
+  behavior: 'smooth'
+});
