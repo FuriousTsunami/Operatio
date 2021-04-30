@@ -11,7 +11,7 @@ var closeMenu = function () {
 var run = function () {
   document.getElementById("progress").style.display = "none";
   document.getElementById("certificate").style.display = "block";
-}
+;}
 var changeGoal = function () {
   document.getElementById("certificate").style.display = "block";
   document.getElementById("print").style.display = "none";
@@ -25,8 +25,11 @@ var exploreSearch = function () {
   var space = document.getElementById("space");
   var time = document.getElementById("time");
   var type = document.getElementById("type");
+	console.log("6");
   var difficulty = document.getElementById("difficulty");
+	console.log("7");
   var searchString = space.value + " " + time.value + " " + type.value + " " + difficulty.value;
+	console.log(searchString)
   var elements = document.getElementsByClassName(searchString);
   elements.forEach(function (element) {
     element.style.display = "block";
@@ -64,50 +67,51 @@ var logHours = function () {
   document.getElementById("hide").style.display = "block";
 }
 var logWeight = function () {
-  var e = document.getElementById("weight")
-  var i = document.getElementById("heighti")
-  var f = document.getElementById("heightf")
-  if (!e.value || !i.value || !f.value) {
+  var weight = document.getElementById("weight")
+  var inches = document.getElementById("heightInches")
+  var feet = document.getElementById("heightFeet")
+  if (!weight.value || !inches.value || !feet.value) {
     document.getElementById("wError").style.display = "block";
     return;
   } else {
     document.getElementById("wError").style.display = "none";
   }
-  f.style.display = "none";
-  i.style.display = "none";
-  e.style.display = "none";
-  var foot = parseInt(f.value);
+  feet.style.display = "none";
+  inches.style.display = "none";
+  weight.style.display = "none";
+  var foot = parseInt(feet.value);
   var place = 10;
   foot *= 12;
-  var inch = parseInt(i.value);
+  var inch = parseInt(inches.value);
   document.getElementById("sWeight").style.display = "none";
-  var tHeight = Math.floor(((703 * e.value) / ((foot + inch) * (foot + inch))) * place) / place;
-  console.log((foot) + i.value);
-  if (tHeight < 18.5) {
-    an = "Underweight.";
-  } else if (tHeight > 25 && tHeight < 30) {
-    an = "Overweight. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
-  } else if (tHeight >= 30) {
-    an = "Obese. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
+  var BMI = Math.floor(((703 * e.value) / ((foot + inch) * (foot + inch))) * place) / place;
+  var response;
+  if (BMI < 18.5) {
+    response = "underweight.";
+  } else if (BMI > 25 && BMI < 30) {
+    response = "overweight. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
+  } else if (BMI >= 30) {
+    response = "obese. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
   } else {
-    an = "at a healthy weight.";
+    response = "at a healthy weight.";
   }
-  document.getElementById("test").innerText = "Your BMI is " + tHeight + " and you are " + an;
+  document.getElementById("test").innerText = "Your BMI is " + BMI + " and you are " + response;
 }
 var createChart = function () {
   var ctx = document.getElementById("myChart").getContext("2d");
 
-  ctx.canvas.width = 100;
-  ctx.canvas.height = 100;
+  ctx.canvas.width = 50;
+  ctx.canvas.height = 25;
 
-  var data = [{ x: 0, y: 30 }, { x: 1, y: 29 }, { x: 2, y: 27 }];
-
+  var data = [{ x: 0, y: 5 }, { x: 1, y: 1 }, { x: 2, y: 6 }, { x:3, y: 0.5 }];
+	// 5, 1, 6, and 0.5
   var scatterChart = new Chart(ctx, {
     type: "line",
     data: {
       datasets: [{
-        label: "Weight",
+        label: "Hours Of Actiity",
         data: data,
+        backgroundColor: "rgba(244, 67, 54, 0.75)",
       }]
     },
     options: {
