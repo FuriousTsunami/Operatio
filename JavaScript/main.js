@@ -11,7 +11,7 @@ var closeMenu = function () {
 var run = function () {
   document.getElementById("progress").style.display = "none";
   document.getElementById("certificate").style.display = "block";
-;}
+};
 var changeGoal = function () {
   document.getElementById("certificate").style.display = "block";
   document.getElementById("print").style.display = "none";
@@ -19,21 +19,25 @@ var changeGoal = function () {
 }
 var exploreSearch = function () {
   var videos = document.getElementsByTagName("video");
-  videos.forEach(function (video) {
-    video.style.display = "none";
-  });
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].style.display = "none";
+  }
   var space = document.getElementById("space");
   var time = document.getElementById("time");
   var type = document.getElementById("type");
-	console.log("6");
-  var difficulty = document.getElementById("difficulty");
-	console.log("7");
-  var searchString = space.value + " " + time.value + " " + type.value + " " + difficulty.value;
-	console.log(searchString)
+  var searchString = space.value + "_" + time.value + "_" + type.value;
   var elements = document.getElementsByClassName(searchString);
-  elements.forEach(function (element) {
-    element.style.display = "block";
-  });
+  var unHidden = false;
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].style.display = "block";
+    unHidden = true;
+  }
+  if (!unHidden) {
+    document.getElementById("error").style.display = "block";
+  }
+  else {
+    document.getElementById("error").style.display = "none";
+  }
 }
 
 var submit = function () {
@@ -84,14 +88,14 @@ var logWeight = function () {
   foot *= 12;
   var inch = parseInt(inches.value);
   document.getElementById("sWeight").style.display = "none";
-  var BMI = Math.floor(((703 * e.value) / ((foot + inch) * (foot + inch))) * place) / place;
+  var BMI = Math.floor(((703 * weight.value) / ((foot + inch) * (foot + inch))) * place) / place;
   var response;
   if (BMI < 18.5) {
     response = "underweight.";
   } else if (BMI > 25 && BMI < 30) {
-    response = "overweight. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
+    response = "overweight."
   } else if (BMI >= 30) {
-    response = "obese. Operatio is made to help you plan when to exercise and get it done without wasting your time.";
+    response = "obese."
   } else {
     response = "at a healthy weight.";
   }
@@ -103,8 +107,8 @@ var createChart = function () {
   ctx.canvas.width = 50;
   ctx.canvas.height = 25;
 
-  var data = [{ x: 0, y: 5 }, { x: 1, y: 1 }, { x: 2, y: 6 }, { x:3, y: 0.5 }];
-	// 5, 1, 6, and 0.5
+  var data = [{ x: 0, y: 5 }, { x: 1, y: 1 }, { x: 2, y: 6 }, { x: 3, y: 0.5 }];
+  // 5, 1, 6, and 0.5
   var scatterChart = new Chart(ctx, {
     type: "line",
     data: {

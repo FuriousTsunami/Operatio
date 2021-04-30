@@ -75,14 +75,6 @@
             <option value = "strength">Strength</option>
             <option value = "yoga">Yoga</option>
           </select>
-          <h4>Exercise Diffulty</h4>
-          <select id = "difficulty">
-            <option value = "easy">Easy</option>
-            <option value = "medium">Medium</option>
-            <option value = "hard">Hard</option>
-            <option value = "intense">Intense</option>
-            <option value = "expert">Expert</option>
-          </select>
           <br>
 					<br>
           <button onclick = "exploreSearch()" class = "style-button style-red">Search!</button>
@@ -92,22 +84,25 @@
       <!-- Videos -->
       <div class = "style-row">
         <div class = "style-third">
-          <video style = "width: 100%" controls>
+          <video style = "width: 100%" class="small_5_strength" controls>
             <source src = "/Video/Explore1.mp4" type = "video/mp4">
           </video>
         </div>
 
         <div class = "style-third">
-          <video style = "width: 100%" controls>
-            <source src = "" type = "video/mp4">
+          <video style = "width: 100%" class="medium_5_strength" controls>
+            <source src = "/Video/Explore2.mp4" type = "video/mp4">
           </video>
         </div>
     
         <div class = "style-third">
-          <video style = "width: 100%" controls>
-            <source src = "" type = "video/mp4">
+          <video style = "width: 100%" class="small_5_cardio" controls>
+            <source src = "/Video/Explore3.mp4" type = "video/mp4">
           </video>
         </div>
+      </div>
+      <div class="style-center">
+        <h3 id="error" style="display: none">Sorry, we couldn't find a video matching your input.</h3>
       </div>
       <!-- Footer -->
       <footer class = "style-container style-padding-32 style-text-red style-center">  
