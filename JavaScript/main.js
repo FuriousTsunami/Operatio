@@ -1,7 +1,3 @@
-var gallery = 1;
-var thing = "";
-var an = "";
-var s = true;
 var openMenu = function () {
   document.getElementById("menu").style.display = "block";
   document.getElementById("menuOverlay").style.display = "block";
@@ -17,20 +13,11 @@ var run = function () {
   document.getElementById("certificate").style.display = "block";
 }
 var changeGoal = function () {
-  document.getElementById("pBar").value = "100";
-  document.getElementById("progressText").textContent = "100%"
-  setTimeout(run, 1000);
-}
-var printElement = function (element) {
-  var printHTML = document.getElementByID(element).innerHTML;
-  var originalHTML = document.body.innerHTML;
-  document.body.innerHTML = printHTML;
-  setTimeout(function () {
-    document.body.innerHTML = originalHTML;
-  }, 1000);
+  document.getElementById("certificate").style.display = "block";
+  document.getElementById("print").style.display = "none";
+  document.getElementById("finishGoal").style.display = "none";
 }
 var exploreSearch = function () {
-  console.log("Searching...");
   var videos = document.getElementsByTagName("video");
   videos.forEach(function (video) {
     video.style.display = "none";
@@ -45,6 +32,7 @@ var exploreSearch = function () {
     element.style.display = "block";
   });
 }
+
 var submit = function () {
   if (document.getElementById("username").value.length < 4 || document.getElementById("username").value.length > 8) {
     document.getElementById("inputError").textContent = "Please follow username guidelines";
@@ -52,8 +40,6 @@ var submit = function () {
   else if (document.getElementById("password").value.length < 8) {
     document.getElementById("inputError").textContent = "Please follow password guidelines";
   } else {
-    db.addData(document.getElementById("username").value, document.getElementById("password").value);
-    thing = document.getElementById("username").value;
     unHide();
   }
 }
@@ -108,25 +94,29 @@ var logWeight = function () {
   }
   document.getElementById("test").innerText = "Your BMI is " + tHeight + " and you are " + an;
 }
-/*
-var secure = function () {
-	if(s){
-		document.body.innerHTML = "<a href = '/Secure/index.html' id = 'u'>goto</a>";
-		document.getElementById("u").click();
-		s = false;
-	}
-}
+var createChart = function () {
+  var ctx = document.getElementById("myChart").getContext("2d");
 
-var check = function() {
-	if(document.getElementById('t').value == 'TempPass'){
-		document.body.innerHTML = "<a href = '/index.html' id = 'ui'>goto</a>";
-		document.getElementById("ui").click();
-		s = false;
-	}
+  ctx.canvas.width = 100;
+  ctx.canvas.height = 100;
+
+  var data = [{ x: 0, y: 30 }, { x: 1, y: 29 }, { x: 2, y: 27 }];
+
+  var scatterChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      datasets: [{
+        label: "Weight",
+        data: data,
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          type: "linear",
+          position: "bottom",
+        }]
+      }
+    }
+  });
 }
-*/
-window.scroll({
-  top: 2500, 
-  left: 0, 
-  behavior: 'smooth'
-});

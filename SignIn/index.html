@@ -1,80 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<title>Operatio</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width = device-width, initial-scale = 1">
-	<link rel="stylesheet" href="/CSS/style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<link rel="stylesheet" href="/CSS/main.css">
-	<link rel="manifest" href="manifest.json">
-	<!-- ios support -->
-	<link rel="apple-touch-icon" href="/Images/Icon-96.png">
-	<meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
-	<meta name="theme-color" content="#f44336"/>
-  <!-- Icon -->
-  <link rel="icon" href="/Images/Icon-72.png">
-</head>
-
-<body class="style-light-grey style-content" style="max-width: none">
-  
-	<h3 class="style-padding-32 style-center"><b>Operatio</b></h3>
-
+   <head>
+      <title>Operatio</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width = device-width, initial-scale = 1">
+      <link rel="stylesheet" href="/CSS/style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+      <link rel="stylesheet" href="/CSS/main.css">
+      <link rel="manifest" href="manifest.json">
+      <!-- ios support -->
+      <link rel="apple-touch-icon" href="/Images/Icon-96.png">
+      <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+      <meta name="theme-color" content="#f44336"/>
+      <!-- Icon -->
+      <link rel="icon" href="/Images/Icon-72.png">
+   </head>
+   <body class="style-light-grey style-content" style="max-width: none">
+      <h3 class="style-padding-32 style-center"><b>Operatio</b></h3>
       <!-- !PAGE CONTENT! -->
       <div class = "style-main">
-
-      <!-- Sign In -->
-      <div class = "style-center">
-        <label id = "usernameLabel" for = "username">Please enter a username less than 9 characters and more than 3 characters:</label>
-        <input type = "username" id = "username" class = "style-input style-margin" placeholder = "Username"></input>
-        <label id = "passwordLabel" for = "password">Please enter a password more than 7 characters:</label>
-        <input type = "password" id = "password" class = "style-input style-margin" placeholder = "Password"></input>
-        <label for = "weight">Please enter your current weight:</label>
-        <input type = "weight" id = "weight" class = "style-input style-margin" placeholder = "Weight"></input>
-        <h5 id = "inputError" class = "style-red"></h5>
-        <a href = "/" id = "cancel" class = "style-button style-red style-margin">CANCEL</a>
-        <a href = "#" id = "submit" class = "style-button style-red style-margin" onclick = "submit()">SUBMIT</a>
-        <a href = "/" id = "hide" class = "style-button style-red style-margin">GO HOME</a>
-          <h3 id = "success" style = "display: none">SUCCESS!</h3>
-        </div>
+         <!-- Sign In -->
+         <div class = "style-center">
+            <label id = "usernameLabel" for = "username">Please enter a username less than 9 characters and more than 3 characters:</label>
+            <input type = "username" id = "username" class = "style-input style-margin" placeholder = "Username"></input>
+            <label id = "passwordLabel" for = "password">Please enter a password more than 7 characters:</label>
+            <input type = "password" id = "password" class = "style-input style-margin" placeholder = "Password"></input>
+            <label for = "weight">Please enter your current weight:</label>
+            <input type = "weight" id = "weight" class = "style-input style-margin" placeholder = "Weight"></input>
+            <h5 id = "inputError" class = "style-red"></h5>
+            <a href = "/" id = "cancel" class = "style-button style-red style-margin">CANCEL</a>
+            <a href = "#" id = "submit" class = "style-button style-red style-margin" onclick = "submit()">SUBMIT</a>
+            <a href = "/" id = "hide" class = "style-button style-red style-margin">GO HOME</a>
+            <h3 id = "success" style = "display: none">SUCCESS!</h3>
+         </div>
       </div>
-
       <!-- Footer -->
-      <footer class = "style-container style-padding-32 style-text-red style-center">  
-        <h4>Operatio: Making People More Active</h4>
+      <footer class = "style-container style-padding-32 style-text-red style-center">
+         <h4>Operatio: Making People More Active</h4>
       </footer>
-
       <!-- End page content -->
-    </div>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
-    authDomain: "operatio-8c56e.firebaseapp.com",
-    databaseURL: "https://operatio-8c56e.firebaseio.com",
-    projectId: "operatio-8c56e",
-    storageBucket: "operatio-8c56e.appspot.com",
-    messagingSenderId: "247443151787",
-    appId: "1:247443151787:web:e237deb933f278f07110ee",
-    measurementId: "G-J17M6JB1N4"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  firebase.analytics();
-</script>
-    <script src = "/app.js"></script>
-    <script src = "/JavaScript/db.js"></script>
-    <script src = "/JavaScript/ui.js"></script>
-  </body>
+      </div>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+      <script>
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         var firebaseConfig = {
+           apiKey: "AIzaSyBCqqgtNa9h90k4p56YJ0u2ucygkqMv7SI",
+           authDomain: "operatio-8c56e.firebaseapp.com",
+           databaseURL: "https://operatio-8c56e.firebaseio.com",
+           projectId: "operatio-8c56e",
+           storageBucket: "operatio-8c56e.appspot.com",
+           messagingSenderId: "247443151787",
+           appId: "1:247443151787:web:e237deb933f278f07110ee",
+           measurementId: "G-J17M6JB1N4"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         const db = firebase.firestore();
+         firebase.analytics();
+      </script>
+      <script src = "/app.js"></script>
+      <script src = "/JavaScript/db.js"></script>
+      <script src = "/JavaScript/ui.js"></script>
+   </body>
 </html>
