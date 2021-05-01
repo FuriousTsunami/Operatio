@@ -59,6 +59,8 @@ var unHide = function () {
   document.getElementById("submit").style.display = "none";
   document.getElementById("usernameLabel").style.display = "none";
   document.getElementById("passwordLabel").style.display = "none";
+  document.getElementById("weight").style.display = "none";
+  document.getElementById("weightLabel").style.display = "none";
   document.getElementById("success").style.display = "block";
 
 }
@@ -107,8 +109,8 @@ var createChart = function () {
   ctx.canvas.width = 50;
   ctx.canvas.height = 25;
 
-  var data = [{ x: 0, y: 5 }, { x: 1, y: 1 }, { x: 2, y: 6 }, { x: 3, y: 0.5 }];
-  // 5, 1, 6, and 0.5
+  var data = [{ x: 0, y: 5 }, { x: 1, y: 1 }];
+  // 5 and 1
   var scatterChart = new Chart(ctx, {
     type: "line",
     data: {
