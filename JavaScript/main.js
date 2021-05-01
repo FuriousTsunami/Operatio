@@ -109,8 +109,8 @@ var createChart = function () {
   ctx.canvas.width = 50;
   ctx.canvas.height = 25;
 
-  var data = [{ x: 0, y: 5 }, { x: 1, y: 1 }];
-  // 5 and 1
+  var data = [{ x: 0, y: 4 }, { x: 1, y: 5 }, { x: 2, y: 3 }];
+  // 4, 5, 3
   var scatterChart = new Chart(ctx, {
     type: "line",
     data: {
@@ -118,13 +118,17 @@ var createChart = function () {
         label: "Hours Of Actiity",
         data: data,
         backgroundColor: "rgba(244, 67, 54, 0.75)",
+      }, {
+        label: "Goal",
+        data: [{ x: 0, y: 7 }, { x: 2, y: 7 }],
+        backgroundColor: "rgba(0, 100, 0, 0.25)",
       }]
     },
     options: {
       scales: {
         xAxes: [{
-          type: "linear",
           position: "bottom",
+          type: "linear",
         }]
       }
     }
