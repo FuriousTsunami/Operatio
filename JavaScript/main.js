@@ -28,16 +28,20 @@ var exploreSearch = function () {
   var searchString = space.value + "_" + time.value + "_" + type.value;
   var elements = document.getElementsByClassName(searchString);
   var unHidden = false;
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].style.display = "block";
-    unHidden = true;
-  }
-  if (!unHidden) {
-    document.getElementById("error").style.display = "block";
-  }
-  else {
-    document.getElementById("error").style.display = "none";
-  }
+  document.getElementById("loader").style.display = "block";
+  setTimeout(function () {
+    document.getElementById("loader").style.display = "none";
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.display = "block";
+      unHidden = true;
+    }
+    if (!unHidden) {
+      document.getElementById("error").style.display = "block";
+    }
+    else {
+      document.getElementById("error").style.display = "none";
+    }
+  }, 750);
 }
 
 var submit = function () {
