@@ -1,3 +1,19 @@
+var people = [
+  {
+    name: "Rose Smith",
+    activity: "2 hours of activity (today)",
+  }, {
+    name: "Stevie Ray",
+    activity: "3 hours of activity (today)",
+  }, {
+    name: "Richie Kyle",
+    activity: "4 hours of activity (today)",
+  }, {
+    name: "Jordana Roxelana",
+    activity: "1 hours of activity (today)",
+  }
+];
+
 var openMenu = function () {
   document.getElementById("menu").style.display = "block";
   document.getElementById("menuOverlay").style.display = "block";
@@ -119,7 +135,7 @@ var createChart = function () {
     type: "line",
     data: {
       datasets: [{
-        label: "Hours Of Actiity",
+        label: "Hours Of Activity",
         data: data,
         backgroundColor: "rgba(244, 67, 54, 0.75)",
       }, {
@@ -130,11 +146,29 @@ var createChart = function () {
     },
     options: {
       scales: {
-        xAxes: [{
-          position: "bottom",
-          type: "linear",
-        }]
+
       }
     }
-  });
+  })
+}
+
+var addFriends = function () {
+  var holder = document.getElementById("friendsThingy");
+  for (var i = 0; i < people.length; i++) {
+    holder.innerHTML += `
+		<div class="style-card-4 style-dark-grey" style="width:50%">
+			<div class="style-container style-center">
+				<h3>${people[i].name}</h3>
+			</div>
+		</div>
+    <div class="style-card-3 style-dark-grey" style="width:50%">
+      <div class="style-section style-center">
+				<div class="style-light-grey style-xlarge">
+					<div class="style-container style-green" style="width:${100 * parseInt(people[i].activity.replace(" hours of activity (today)", ""))/7}%">${parseInt(people[i].activity.replace(" of activity (today)", ""))}</div>
+				</div>
+		  </div>
+    </div>
+    <br>
+    `;
+  }
 }
