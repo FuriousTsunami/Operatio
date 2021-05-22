@@ -4,13 +4,13 @@ var people = [
     activity: "2 hours of activity (today)",
   }, {
     name: "Stevie Ray",
-    activity: "3 hours of activity (today)",
-  }, {
-    name: "Richie Kyle",
     activity: "4 hours of activity (today)",
   }, {
+    name: "Richie Kyle",
+    activity: "6 hours of activity (today)",
+  }, {
     name: "Jordana Roxelana",
-    activity: "1 hours of activity (today)",
+    activity: "3 hours of activity (today)",
   }
 ];
 
@@ -156,15 +156,15 @@ var addFriends = function () {
   var holder = document.getElementById("friendsThingy");
   for (var i = 0; i < people.length; i++) {
     holder.innerHTML += `
-		<div class="style-card-4 style-dark-grey" style="width:50%">
+		<div class="style-card-4 style-dark-grey" style="width:100%">
 			<div class="style-container style-center">
 				<h3>${people[i].name}</h3>
 			</div>
 		</div>
-    <div class="style-card-3 style-dark-grey" style="width:50%">
+    <div class="style-card-3 style-dark-grey" style="width:100%">
       <div class="style-section style-center">
 				<div class="style-light-grey style-xlarge">
-					<div class="style-container style-green" style="width:${100 * parseInt(people[i].activity.replace(" hours of activity (today)", ""))/7}%">${parseInt(people[i].activity.replace(" of activity (today)", ""))}</div>
+					<div class="style-container style-green" style="width:${100 * parseInt(people[i].activity.replace(" hours of activity (today)", ""))/7}%">${Math.round(100 * parseInt(people[i].activity.replace(" hours of activity (today)", ""))/7)}%</div>
 				</div>
 		  </div>
     </div>
